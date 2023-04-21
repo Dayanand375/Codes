@@ -1,8 +1,7 @@
 #include <stdio.h>
-#define ROW 3
-#define COL 3
 
-void matrixInput(int mat[][COL]) {
+
+void matrixInput(int mat[][10],int ROW,int COL) {
     int row, col;
     for (row = 0; row < ROW; row++) {
         for (col = 0; col < COL; col++) {
@@ -10,7 +9,7 @@ void matrixInput(int mat[][COL]) {
         }
     }
 }
-void matrixPrint(int mat[][COL]) {
+void matrixPrint(int mat[][10],int ROW,int COL) {
     int row, col;
     for (row = 0; row < ROW; row++) {
         for (col = 0; col < COL; col++) {
@@ -19,7 +18,7 @@ void matrixPrint(int mat[][COL]) {
         printf("\n");
     }
 }
-void matrixMultiply(int mat1[][COL], int mat2[][COL], int res[][COL]) {
+void matrixMultiply(int mat1[][10], int mat2[][10],int ROW,int COL, int res[][10]) {
     int row, col, i;
     int sum;
     for (row = 0; row < ROW; row++) {
@@ -35,15 +34,17 @@ void matrixMultiply(int mat1[][COL], int mat2[][COL], int res[][COL]) {
 
 
 int main() {
-    int mat1[ROW][COL];
-    int mat2[ROW][COL];
-    int product[ROW][COL];
+    int mat1[10][10];
+    int mat2[10][10];
+    int product[10][10];
+    int ROW,COL;
+    scanf("%d %d",&ROW,&COL);
     printf("Enter elements in first matrix of size %dx%d\n", ROW, COL);
-    matrixInput(mat1);
+    matrixInput(mat1,ROW,COL);
     printf("Enter elements in second matrix of size %dx%d\n", ROW, COL);
-    matrixInput(mat2);
-    matrixMultiply(mat1, mat2, product);
+    matrixInput(mat2,ROW,COL);
+    matrixMultiply(mat1, mat2,ROW,COL, product);
     printf("Product of both matrices is : \n");
-    matrixPrint(product);
+    matrixPrint(product,ROW,COL);
     return 0;
 }
